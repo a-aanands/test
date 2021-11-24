@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="4e466b75-947b-4349-8e17-d9b5ed412e28" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<file:config name="File_Config" doc:name="File Config" doc:id="fa2940e5-742e-4ca8-a114-49140b7ae697" />
+	<flow name="testFlow" doc:id="ca884537-85ad-438e-ae30-05935f51a97b" >
+		<http:listener doc:name="Listener" doc:id="41354354-d49b-480c-8ead-e4e2417fd0c8" config-ref="HTTP_Listener_config" path="test"/>
+		<set-payload value='#["Hello from Abhinav"]' doc:name="Set Payload" doc:id="66328aeb-8671-45a2-b7b6-84b33adb098a" />
+	</flow>
+</mule>
